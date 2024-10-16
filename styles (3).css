@@ -1,0 +1,761 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background-color: #f5f5f5; /* 更柔和的淺灰色背景 */
+    padding-top: 50px;
+}
+
+header {
+    background-color: #f0e68c; /* 主色：明亮黃色 */
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+
+.right-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.right-container ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.right-container ul li {
+    margin-left: 5px;
+    position: relative;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.right-container ul li:first-child {
+    margin-left: 0;
+}
+
+.right-container ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.right-container ul li a:hover {
+    color: #ffffff; /* 保持白色文字 */
+    background-color: #f9a825; /* 懸停效果的柔和黃色 */
+    transform: translateY(-2px);
+}
+
+.dropbtn {
+    background-color: #f0e68c; /* 主色：明亮黃色 */
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.dropbtn:hover {
+    background-color: #f9a825; /* 懸停效果的柔和黃色 */
+    transform: scale(1.05);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 3px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-content a {
+    color: #000000;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* 淺灰色 */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(10px);
+}
+
+.logo h1 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.logo h1 a:hover {
+    color: #f9a825; /* 懸停效果的柔和黃色 */
+}
+
+.search-container form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 250px;
+    margin-right: 5px;
+}
+
+.search-container button {
+    padding: 10px;
+    background-color: #f9a825; /* 主色：柔和黃色 */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #f57f17; /* 懸停效果的深橙色 */
+    transform: scale(1.02);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 100px);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.left-half {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.right-half {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#TGMap {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #C0C0C0;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+}
+
+.input-group input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.input-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.input-row .input-group {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.input-row .input-group:last-child {
+    margin-right: 0;
+}
+
+.full-width-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.full-width-button:hover {
+    background-color: #0056b3;
+}
+
+.reset-password-box {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin: 100px auto;
+}
+
+.container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.container h2 {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    color: #f0e68c; /* 主色：明亮黃色 */
+    margin-bottom: 20px;
+    border-bottom: none;
+}
+
+.container h2 a {
+    color: #f0e68c; /* 主色：明亮黃色 */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.container h2 a:hover {
+    color: #f9a825; /* 懸停效果的柔和黃色 */
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .input-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.container label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.container input[type="text"],
+.container input[type="password"],
+.container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f0e68c; /* 主色：明亮黃色 */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.container button:hover {
+    background-color: #f9a825; /* 懸停效果的柔和黃色 */
+    transform: scale(1.02);
+}
+
+.container .link {
+    margin-top: 10px;
+}
+
+.container .link a {
+    color: #f0e68c; /* 主色：明亮黃色 */
+    text-decoration: none;
+}
+
+.container .link a:hover {
+    text-decoration: underline;
+}
+
+.login-container,
+.register-container,
+.forgot-password-container {
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin: 100px auto;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #f0e68c; /* 主色：明亮黃色 */
+    font-size: 24px;
+    font-weight: 700;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 16px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.floating-button {
+    width: 60px; /* 按鈕的寬度 */
+    height: 60px; /* 按鈕的高度 */
+    background-color: #007BFF; /* 按鈕背景顏色 */
+    color: white; /* 字體顏色 */
+    border: none;
+    border-radius: 50%; /* 使按鈕圓形 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 陰影效果 */
+    position: fixed; /* 固定位置 */
+    bottom: 20px; /* 距離底部的距離 */
+    right: 20px; /* 距離右側的距離 */
+    display: flex; /* 使內容居中 */
+    justify-content: center; /* 使內容水平居中 */
+    align-items: center; /* 使內容垂直居中 */
+    cursor: pointer; /* 游標效果 */
+    transition: background-color 0.3s, transform 0.3s; /* 過渡效果 */
+}
+
+.floating-button:hover {
+    background-color: #0056b3; /* 懸停時的顏色 */
+    transform: scale(1.1); /* 懸停時的放大效果 */
+}
+
+.forgot-password,
+.back-to-login {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.forgot-password a,
+.back-to-login a {
+    color: #f0e68c; /* 主色：明亮黃色 */
+    text-decoration: none;
+}
+
+.forgot-password a:hover,
+.back-to-login a:hover {
+    text-decoration: underline;
+}
+
+
+/* 搜尋框和按鈕在同一個行 */
+.search-container form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 250px;
+    margin-right: 5px;
+}
+
+.search-container button {
+    padding: 10px;
+    background-color: #f5b300; /* 主色：柔和黃色 */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #e0a800; /* 懸停效果的稍深黃色 */
+    transform: scale(1.02);
+}
+
+/* 页面内容布局 */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 100px); /* Adjust the height to exclude header */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fafafa; /* 更柔和的淺灰色背景 */
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    max-width: 1200px; /* Max width for the content container */
+    margin: auto;
+}
+
+.left-half {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.right-half {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#TGMap {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #C0C0C0;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+}
+
+.input-group input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.input-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.input-row .input-group {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.input-row .input-group:last-child {
+    margin-right: 0;
+}
+
+.full-width-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f5b300; /* 主色：柔和黃色 */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.full-width-button:hover {
+    background-color: #e0a800; /* 懸停效果的稍深黃色 */
+}
+
+/* 重設密碼頁面樣式 */
+.reset-password-box {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin: 100px auto;
+}
+
+.container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.container h2 {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    color: #f5b300; /* 主色：柔和黃色 */
+    margin-bottom: 20px;
+    border-bottom: none; /* 移除底線 */
+}
+
+.container h2 a {
+    color: #f5b300; /* 主色：柔和黃色 */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.container h2 a:hover {
+    color: #e0a800; /* 懸停效果的稍深黃色 */
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .input-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.container label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.container input[type="text"],
+.container input[type="password"],
+.container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f5b300; /* 主色：柔和黃色 */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.container button:hover {
+    background-color: #e0a800; /* 懸停效果的稍深黃色 */
+    transform: scale(1.02);
+}
+
+.container .link {
+    margin-top: 10px;
+}
+
+.container .link a {
+    color: #f5b300; /* 主色：柔和黃色 */
+    text-decoration: none;
+}
+
+.container .link a:hover {
+    text-decoration: underline;
+}
+
+/* 登入、註冊、重設密碼介面的共同樣式 */
+.login-container,
+.register-container,
+.forgot-password-container {
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin: 100px auto;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #f5b300; /* 主色：柔和黃色 */
+    font-size: 24px;
+    font-weight: 700;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 16px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f5b300; /* 主色：柔和黃色 */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #e0a800; /* 懸停效果的稍深黃色 */
+    transform: scale(1.02);
+}
+
+.forgot-password,
+.back-to-login {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.forgot-password a,
+.back-to-login a {
+    color: #f5b300; /* 主色：柔和黃色 */
+    text-decoration: none;
+}
+
+.forgot-password a:hover,
+.back-to-login a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
